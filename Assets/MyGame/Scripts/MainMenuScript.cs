@@ -5,7 +5,8 @@ public class MainMenuScript : MonoBehaviour
 {
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        Debug.Log("Loading Game-Scene");
+        SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
