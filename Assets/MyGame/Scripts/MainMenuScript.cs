@@ -15,6 +15,7 @@ public class MainMenuScript : MonoBehaviour
     public void QuitGame()
     {
         Debug.Log("Game Quit");
+        ScoreManager.Instance.AddPoint();
         Application.Quit();
     }
 }
