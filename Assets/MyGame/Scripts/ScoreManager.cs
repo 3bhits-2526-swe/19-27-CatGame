@@ -8,7 +8,8 @@ public class ScoreManager : MonoBehaviour
     public int CurrentScore { get; private set; }
     public int HighScore { get; private set; }
 
-    [SerializeField] private TextMeshProUGUI Score_Field;
+    private TextMeshProUGUI scoreField;
+    private TextMeshProUGUI highScoreField;
 
     private void Awake()
     {
@@ -22,7 +23,16 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadHighScore();
+    }
+
+    // Each scene calls this when its UI is ready
+    public void RegisterUI(TextMeshProUGUI score, TextMeshProUGUI highScore)
+    {
+        scoreField = score;
+        highScoreField = highScore;
+
         UpdateScoreText();
+        UpdateHighScoreText();
     }
 
     public void AddPoint(int amount = 1)
@@ -36,6 +46,7 @@ public class ScoreManager : MonoBehaviour
         }
 
         UpdateScoreText();
+        UpdateHighScoreText();
     }
 
     public void ResetScore()
@@ -44,21 +55,25 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
-    void UpdateScoreText()
+    private void UpdateScoreText()
     {
-        if (Score_Field != null)
-        {
-            Score_Field.text = "Score: " + CurrentScore;
-        }
+        if (scoreField != null)
+            scoreField.text = "Score: " + CurrentScore;
     }
 
-    void SaveHighScore()
+    private void UpdateHighScoreText()
+    {
+        if (highScoreField != null)
+            highScoreField.text = "High Score: " + HighScore;
+    }
+
+    private void SaveHighScore()
     {
         PlayerPrefs.SetInt("HighScore", HighScore);
         PlayerPrefs.Save();
     }
 
-    void LoadHighScore()
+    private void LoadHighScore()
     {
         HighScore = PlayerPrefs.GetInt("HighScore", 0);
     }
