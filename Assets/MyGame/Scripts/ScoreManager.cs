@@ -1,4 +1,5 @@
 using UnityEngine;
+using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
@@ -6,6 +7,8 @@ public class ScoreManager : MonoBehaviour
 
     public int CurrentScore { get; private set; }
     public int HighScore { get; private set; }
+
+    [SerializeField] private TextMeshProUGUI Score_Field;
 
     private void Awake()
     {
@@ -19,6 +22,7 @@ public class ScoreManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         LoadHighScore();
+        UpdateScoreText();
     }
 
     public void AddPoint(int amount = 1)
@@ -30,11 +34,22 @@ public class ScoreManager : MonoBehaviour
             HighScore = CurrentScore;
             SaveHighScore();
         }
+
+        UpdateScoreText();
     }
 
     public void ResetScore()
     {
         CurrentScore = 0;
+        UpdateScoreText();
+    }
+
+    void UpdateScoreText()
+    {
+        if (Score_Field != null)
+        {
+            Score_Field.text = "Score: " + CurrentScore;
+        }
     }
 
     void SaveHighScore()
