@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 2174869737557855142}
   - component: {fileID: 5261621686585506803}
   - component: {fileID: 7191780464935145107}
-  - component: {fileID: -3112364982519053428}
-  - component: {fileID: 8764664452707993341}
+  - component: {fileID: -5168923683402710230}
   m_Layer: 0
   m_Name: DirtySnowball1
   m_TagString: Untagged
@@ -150,7 +149,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 6.12, y: 6.12}
   m_EdgeRadius: 0
---- !u!50 &-3112364982519053428
+--- !u!50 &-5168923683402710230
 Rigidbody2D:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -177,16 +176,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &8764664452707993341
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4254253404706517442}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bab5a491235d8214a87898565072b431, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
