@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 788563389}
   - component: {fileID: 788563391}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Schneeballasuwahl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
