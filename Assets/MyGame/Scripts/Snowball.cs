@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Snowball : MonoBehaviour
@@ -11,9 +12,24 @@ public class Snowball : MonoBehaviour
         rb.linearVelocity = Vector2.down * speed;
     }
 
+    void Update()
+    {
+        //Debug.Log("Update called");
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("A key pressed");
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
+        }
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            Debug.Log("D key pressed");
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        }
+    }
+
     void OnTriggerStay2D(Collider2D collision)
     {
         rb.linearVelocity = Vector2.zero;
-        Debug.Log("Schneeball hat Trigger betreten");
+        //Debug.Log("Schneeball hat Trigger betreten");
     }
 }
